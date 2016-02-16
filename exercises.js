@@ -140,19 +140,20 @@ console.assert(findLongestWord("hippo and codepen"), "string here");
 
 function filterLongWords(words, i){
     "use strict";
-    // var arr = words, i;
-    // arr.sort(function (a, b) {return b.length - a.length}) [0];
-    // // }
-    // if (words.length > i.length) {
-    //   // return words;
-    // } else {
-    //   // return i;
-    // }
-
+    var piece = words.split (' ')
+    var longWords = 0;
+    var part = null;
+    for (var i = 0; i < piece.length; i++) {
+      if (longWords > piece[i].length) {
+        longWords = piece[i].length;
+        part = piece[i];
+      }
+    }
+    return part;
 }
 
 
-console.log(filterLongWords('hippo', 3));
+console.log(filterLongWords('hippo and', 3));
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
@@ -160,5 +161,16 @@ console.log(filterLongWords('hippo', 3));
 
 function charFreq(string){
     "use strict";
-    //...
+    var freq = {};
+    for (var i = 0; i < string.length; i++) {
+      var char = string.charAt(i);
+      if (freq[char]) {
+        freq[char]++;
+      } else {
+        freq[char] = 1;
+      }
+    }
+    return freq;
 }
+
+console.log(charFreq('abbabcbdbabdbdbabababcbcbab'));
