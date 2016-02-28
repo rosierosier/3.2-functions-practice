@@ -11,17 +11,15 @@ function max(number1, number2){
     "use strict";
 
     if (number1 > number2) {
-      return number1
+      return number1;
     } else {
-      return number2
+      return number2;
     }
-
 }
 
 console.log(max(5, 10));
 
 console.assert(max(5,10) == 10, "string here");
-// console.assert(max(5,9),"input your string here");
 
 // ---------------------
 // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
@@ -90,7 +88,7 @@ function sum(a, b, c, d){
 
 }
 
-sum(1, 2, 3, 4);
+sum([1, 2, 3, 4]);
 
 
 function multiply(a, b, c, d){
@@ -99,7 +97,7 @@ function multiply(a, b, c, d){
 
 }
 
-multiply(1, 2, 3, 4);
+multiply([1, 2, 3, 4]);
 
 
 // ---------------------
@@ -140,20 +138,16 @@ console.assert(findLongestWord("hippo and codepen"), "string here");
 
 function filterLongWords(words, i){
     "use strict";
-    var piece = words.split (' ')
-    var longWords = 0;
-    var part = null;
-    for (var i = 0; i < piece.length; i++) {
-      if (longWords > piece[i].length) {
-        longWords = piece[i].length;
-        part = piece[i];
+    var longWords = [];
+    for (var j = 0; j < words.length; j++) {
+      if (words[j].length > i) {
+        longWords.push(words[j]);
       }
     }
-    return part;
+    return longWords;
 }
 
-
-console.log(filterLongWords('hippo and', 3));
+console.log(filterLongWords(['hippo', 'and'], 3));
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
